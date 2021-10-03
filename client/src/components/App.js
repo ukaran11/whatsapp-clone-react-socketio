@@ -1,5 +1,6 @@
 import React from 'react';
 import { ContactsProvider } from '../context/ContactsProvider';
+import { ConversationsProvider } from '../context/ConversationsProvider';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import Dashboard from './Dashboard';
 import Login from "./Login";
@@ -9,7 +10,9 @@ const App = () => {
 
   const dashboard = (
     <ContactsProvider>
-      <Dashboard id={id} />
+      <ConversationsProvider>
+        <Dashboard id={id} />
+      </ConversationsProvider>
     </ContactsProvider>
   )
   return (
